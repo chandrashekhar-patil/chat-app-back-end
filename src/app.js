@@ -25,15 +25,6 @@ const __dirname = path.resolve();
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../front-end/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../front-end", "dist", "index.html"));
-  });
-}
-
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:` + PORT);
   connectDB();
