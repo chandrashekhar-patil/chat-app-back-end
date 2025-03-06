@@ -12,13 +12,7 @@ import path from "path";
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: "http://localhost:5173", // Set this to your frontend URL
-  credentials: true, // Allow cookies and authorization headers
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
