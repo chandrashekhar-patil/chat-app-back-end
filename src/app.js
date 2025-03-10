@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 //FIXED CORS CONFIGURATION
 app.use(cors({
-  origin: 'https://chatty-six-theta.vercel.app',  // Allow your frontend URL
+  origin: '*',  // Allow your frontend URL
   credentials: true                  // Allow cookies, tokens, etc.
 }));
 
