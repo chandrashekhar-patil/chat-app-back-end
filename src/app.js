@@ -6,13 +6,17 @@ import cookieParser from "cookie-parser";
 import messageRoutes from "./routes/message.route.js";
 import cors from "cors";
 import { app, server } from "./lib/socket.js";
-
 import path from "path";
 
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+
+//FIXED CORS CONFIGURATION
+app.use(cors({
+  origin: 'http://localhost:5173',  // Allow your frontend URL
+  credentials: true                  // Allow cookies, tokens, etc.
+}));
 
 const PORT = process.env.PORT || 3000;
 
